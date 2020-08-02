@@ -64,12 +64,10 @@ class RoundRobinScheduler
             array_shift($home);
             array_push($home, $carryover);
             $home[0] = $pivot;
-        }//endfor
+        }
 
         return $calendar;
     }
-
-    //end function bergerAlgorithm
 
     /**
      * @param array $teams          teams to be distributed
@@ -112,4 +110,4 @@ class RoundRobinScheduler
 
         return $rounds;
     }
-}//end class
+}

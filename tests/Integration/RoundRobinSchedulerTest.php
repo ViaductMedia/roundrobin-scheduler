@@ -18,7 +18,7 @@ class RoundRobinSchedulerTest extends TestCase
 
     private $className = 'roundrobin-scheduler';
 
-    public function setup()
+    public function setUp(): void
     {
         $this->facade = new \Gautile\RoundRobin\Facades\RoundRobinScheduler();
         $this->serviceProvider = new \Gautile\RoundRobin\RoundRobinSchedulerServiceProvider($this->app);
@@ -28,11 +28,15 @@ class RoundRobinSchedulerTest extends TestCase
     {
         $classNames = $this->serviceProvider->provides();
 
-        $this->assertTrue(is_array($classNames),
-            'The method doesn\'t return an array of strings');
+        $this->assertTrue(
+            is_array($classNames),
+            'The method doesn\'t return an array of strings'
+        );
 
-        $this->assertTrue(in_array($this->className, $classNames),
-            'The ServiceProvider doesn\'t return '.$this->className);
+        $this->assertTrue(
+            in_array($this->className, $classNames),
+            'The ServiceProvider doesn\'t return ' . $this->className
+        );
 
         //check that also the facade returns the correct service name
         $facade = self::getMethod(\Gautile\RoundRobin\Facades\RoundRobinScheduler::class, 'getFacadeAccessor');

@@ -1,15 +1,16 @@
 <?php
 
 use Gautile\RoundRobin\RoundRobinScheduler;
+use PHPUnit\Framework\TestCase;
 
-class UtilsBergerAlgorithmTest extends PHPUnit_Framework_TestCase
+class UtilsBergerAlgorithmTest extends TestCase
 {
     private $utils;
 
     /**
      * @var RoundRobinScheduler
      */
-    public function setup()
+    public function setUp(): void
     {
         $this->utils = new RoundRobinScheduler();
     }
@@ -76,11 +77,9 @@ class UtilsBergerAlgorithmTest extends PHPUnit_Framework_TestCase
                     ],
                 ],
                 "Provided valid even array doesn't match the expected completed round",
-            ], //end #1 dataset
+            ],
         ];
     }
-
-    //provideValidEvenRound()
 
     public function provideValidOddRound()
     {
@@ -105,7 +104,7 @@ class UtilsBergerAlgorithmTest extends PHPUnit_Framework_TestCase
                     ],
                 ],
                 "Provided valid odd array doesn't match the expected completed round",
-            ], //end #1 datase
+            ],
             [
                 ['Napoli'],
                 [
@@ -115,6 +114,4 @@ class UtilsBergerAlgorithmTest extends PHPUnit_Framework_TestCase
             ],
         ];
     }
-
-    //provideValidOddRound()
-}//testClass
+}

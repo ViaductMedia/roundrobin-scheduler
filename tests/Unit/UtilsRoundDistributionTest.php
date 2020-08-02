@@ -1,15 +1,16 @@
 <?php
 
 use Gautile\RoundRobin\RoundRobinScheduler;
+use PHPUnit\Framework\TestCase;
 
-class UtilsRoundDistributionTest extends PHPUnit_Framework_TestCase
+class UtilsRoundDistributionTest extends TestCase
 {
     /**
      * @var RoundRobinScheduler
      */
     private $utils;
 
-    public function setup()
+    public function setUp(): void
     {
         $this->utils = new RoundRobinScheduler();
     }
@@ -61,9 +62,7 @@ class UtilsRoundDistributionTest extends PHPUnit_Framework_TestCase
                     ['Udinese', 'Inter', 'Roma'],
                 ],
                 "Returned set of rounds from valid array of teams doesn't match the expected one",
-            ], //end #1 dataset
+            ],
         ];
     }
-
-    //provideValidOddRound()
 }
